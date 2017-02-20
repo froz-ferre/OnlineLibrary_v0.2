@@ -1,0 +1,63 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
+
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div >
+            <div class="navbar-header">
+                @Html.ActionLink("Online Library", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+        </div>
+        <div class="navbar-right">
+         @if (Request.Cookies["AUTH"] == null)
+            {
+        <div id="auth">
+            @Html.ActionLink("Register", "Register", "Account")
+        </div>
+        <div id="auth">
+            @Html.ActionLink("LogIn", "Login", "Account")
+        </div>
+    }
+    else
+    {
+                <div id="auth" style="color:antiquewhite">
+                    Hello,
+                    @Request.Cookies["AUTH"].Value
+                </div>
+                <div id="auth">
+                    @Html.ActionLink("LogOut", "Logout", "Account")
+                </div>
+            }
+        </div>
+    </div>
+    <!--test-->
+    <div class="row panel"> 
+        <div class="col-xs-2"></div>
+        
+        <div class="col-xs-8">
+            @RenderBody()
+        </div>
+    </div>
+    <!--/test-->
+
+    <div>
+        <hr />
+        <footer style="text-align:center" class="panel-footer">
+            <p>&copy; @DateTime.Now.Year Froz-Ferre.co</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

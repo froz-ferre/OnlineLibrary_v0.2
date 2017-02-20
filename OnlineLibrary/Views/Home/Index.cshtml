@@ -1,0 +1,36 @@
+﻿@model IEnumerable<OnlineLibrary.Models.Book>
+<ul class="list-inline navbar">
+    
+    <li>
+        @Html.ActionLink("All Books", "Index", "Home", new { sort = ViewBag.Sort, able = (short?)null },
+        new { @class = "btn btn-block btn-default btn-lg" })
+    </li>
+    <li>
+        @Html.ActionLink("Enabled books", "Index", "Home", new { sort = ViewBag.Sort, able = 1 },
+        new { @class = "btn btn-block btn-default btn-lg" })
+    </li>
+    <li>
+        @Html.ActionLink("Disabled books", "Index", "Home", new { sort = ViewBag.Sort, able = 0 },
+        new { @class = "btn btn-block btn-default btn-lg" })
+    </li>
+    <li>
+        <form method="get">
+            <div class="form-inline">
+                <label class="control-label">Sort by: </label>
+                @Html.DropDownList("sort", ViewBag.Books as SelectList)
+                <input type="submit" value="Sort" class="btn btn-default" />
+            </div>
+        </form>
+    </li>
+</ul>
+<div>
+    @foreach (var book in Model)
+    {
+        @Html.Partial("_BookSum", book)
+    }
+</div>
+
+    @*<div class="btn-group pull-right">
+            @Html.pagingNavigator((int)Html.ViewData["page"], (int)Html.ViewData["itemsCount"], (int)Html.ViewData["pageSize"])
+        </div>*@
+

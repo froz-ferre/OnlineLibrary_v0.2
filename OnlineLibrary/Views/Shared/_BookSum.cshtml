@@ -1,0 +1,42 @@
+﻿@model OnlineLibrary.Models.Book
+
+
+
+    <div class="well top-right">
+        <div class="row">
+            <div class="col-xs-10">
+                <h3>
+                    <strong>@Html.DisplayFor(modelItem => Model.Title)</strong>
+                </h3>
+                <h4>
+                    <strong>@Html.DisplayFor(modelItem => Model.Authors)</strong>
+                </h4>
+            </div>
+            <div class="col-xs-2">
+                <h3>
+                    @if ((int)Model.Availible == 1)
+                {
+                        <strong class="pull-right label label-success">
+
+                            Available
+
+                        </strong>
+                }
+                else
+                {
+                        <strong class="pull-right label label-primary label-danger">
+
+                            Not anailable
+
+                        </strong>
+                }
+                    <strong class="pull-right bottom btn btn-default">
+                        @Html.ActionLink("Details", "Details", "Home", new { id = Model.BookID }, null)
+                    </strong>
+                </h3>
+            </div>
+        </div>
+        <span class="lead">
+            @Html.DisplayFor(modelItem => Model.Description)
+        </span>
+    </div>

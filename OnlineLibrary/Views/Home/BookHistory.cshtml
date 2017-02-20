@@ -1,0 +1,44 @@
+﻿@model IEnumerable<OnlineLibrary.Models.History>
+
+
+<table class="table">
+    <tr>
+        <th>
+            Book title
+        </th>
+        <th>
+            User name
+        </th>
+        <th>
+            User e-mail
+        </th>
+        <th>
+            Took the book
+        </th>
+        <th>
+            Returned the book
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Book.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TakeDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BackDate)
+        </td>
+    </tr>
+}
+
+</table>

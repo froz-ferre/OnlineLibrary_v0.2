@@ -1,0 +1,68 @@
+﻿@model OnlineLibrary.Models.Book
+
+<h2>"@Html.DisplayFor(model => model.Title)" Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Authors)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Authors)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Availible)
+        </dt>
+
+        <dd>
+            @if ((int)Model.Availible == 1)
+            {
+                   <p style="color:lightgreen"><strong>Available</strong></p>
+            }
+            else
+            {
+                  <p style="color:darksalmon">Not available</p>
+            }
+        </dd>
+        <dd>
+           
+            <div class="btn bg-info">
+                @Html.ActionLink("Show Book History", "BookHistory", "Home", new { id = Model.BookID }, null)
+            </div>
+           @if ((int)Model.Availible == 0 && Model.Histories.Where(c => c.User.Email == Request.Cookies["AUTH"].Value && c.BackDate == DateTime.MinValue).Select(c => c.BookID).FirstOrDefault() == Model.BookID )
+           {
+               <div class="btn bg-info">
+                    @Html.ActionLink("Return book", "ReturnBook", "Home", new { id = Model.BookID }, null)
+                </div>
+           }
+           else
+           {
+                <div class="btn bg-info">
+                    @Html.ActionLink("Take this book", "TakeBook", "Home", new { id = Model.BookID }, null)
+                </div>
+           }
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
