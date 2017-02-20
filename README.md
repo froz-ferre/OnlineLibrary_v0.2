@@ -9,7 +9,7 @@
 <hr />
 <h1>User guide</h1>
 <h3>At start you need to register</h3>
-<h4>(Enter your persinal data in special fields)</h4>
+<h4>(Enter your persоnal data in special fields)</h4>
 <h3>Then you can choose a book in list</h3>
 <h4>(For convenience, you can choose how to sort in the top of the list)</h4>
 <h3>The book must be available. If so, push the "Details" button.
