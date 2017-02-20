@@ -4,7 +4,7 @@
 <h3>Then open OnlineLibrary.sln in MS Visual Studio. Mouse right click to project name and select "Publish"</h3>
 <h3>As Publish method using File System</h3>
 <h3>As Target location using C:\inetpub\wwwroot\OnlineLibrary</h3>
-<h3>As Destination URL using http://localhost/OnlineLibrary and push <h2>PUBLISH</h2></h3>
+<h3>As Destination URL using http://localhost/OnlineLibrary and push "PUBLISH"</h3>
 <h4>(All files to temporary location below for package/publish: obj\Release\Package\PackageTmp.)</h4>
 <hr />
 <h1>User guide</h1>
